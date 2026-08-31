@@ -1,0 +1,11 @@
+{
+  "name": "dsh-tool-zsh-monorepo",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Seamlessly run the DeepSeek Harness (dsh) shell through zsh: a zsh executor and a model-facing zsh tool, plus a profile bundle and agent preset for drop-in replacement of dsh-tool-bash.",
+  "license": "MIT",
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=20"
+  }
+}

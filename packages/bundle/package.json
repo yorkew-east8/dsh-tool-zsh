@@ -1,0 +1,31 @@
+{
+  "name": "@yorkew-east8/dsh-zsh-bundle",
+  "description": "Drop-in profile bundle that runs the DeepSeek Harness (dsh) shell through zsh: swaps the bash-sandbox executor for a zsh one and the bash tool for the zsh tool",
+  "version": "0.1.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yorkew-east8/dsh-tool-zsh.git",
+    "directory": "packages/bundle"
+  },
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "cordis.patch.yml",
+    "README.md",
+    "agent-presets/zsh/agent.cordis.yml",
+    "agent-presets/zsh/preset.yml"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@yorkew-east8/dsh-zsh-sandbox": "^0.1.0",
+    "@yorkew-east8/dsh-tool-zsh": "^0.1.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

@@ -1,0 +1,3 @@
+name: Zsh 模式
+description: 标准模式（standard）的副本，但 shell 工具为 zsh，命令通过 zsh 执行；配合 dsh-zsh-bundle 使用。
+order: 2

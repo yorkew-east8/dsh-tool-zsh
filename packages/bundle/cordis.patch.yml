@@ -1,0 +1,20 @@
+# dsh-zsh-bundle — applied after the base/web-app bundle layers.
+#
+# What this changes:
+#   * Disables the host-plane `bash-sandbox` executor and inserts a
+#     `zsh-sandbox` one in its place. Every session's shell command then runs
+#     through `zsh -c` instead of `bash -c`, keeping the same sandbox,
+#     approval/escalation, timeout, spill, and output semantics.
+#
+# The model-facing TOOL rename (bash -> zsh) is intentionally NOT done here:
+# on the Web surface, host-plane tool rows are disabled and tools are mounted
+# per-session by an agent preset, so renaming the tool there belongs to the
+# preset (see agent-presets/zsh/). On headless/tui surfaces, disable
+# `tool-bash` and insert `tool-zsh` in your own cordis.patch.yml to swap the
+# tool name too.
+- id: bash-sandbox
+  disabled: true
+
+- insert:
+    - id: zsh-sandbox
+      name: '@yorkew-east8/dsh-zsh-sandbox'
