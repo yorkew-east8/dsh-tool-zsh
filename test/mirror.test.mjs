@@ -14,6 +14,14 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { root } from './helpers.mjs';
 import { renameBashToZsh, stripBanner } from '../scripts/mirror-tool.mjs';
+import * as presetMirror from '../scripts/mirror-preset.mjs';
+
+test('both mirror scripts are importable without running their CLI', () => {
+  // A module-level `process.exit` outside the entry-point guard would kill the
+  // test runner on import; asserting the namespaces proves the guard holds.
+  assert.equal(typeof presetMirror, 'object');
+  assert.equal(typeof renameBashToZsh, 'function');
+});
 
 test('renames identifiers and prose in both cases', () => {
   assert.equal(renameBashToZsh('bashDescription'), 'zshDescription');

@@ -155,13 +155,13 @@ function firstDifference(expected, actual) {
   return undefined;
 }
 
-const mode = process.argv.includes('--check') ? 'check' : process.argv.includes('--write') ? 'write' : undefined;
-if (mode === undefined) {
-  console.error('usage: node scripts/mirror-preset.mjs --write | --check');
-  process.exit(2);
-}
-
 if (isMain(import.meta.url)) {
+  const mode = process.argv.includes('--check') ? 'check' : process.argv.includes('--write') ? 'write' : undefined;
+  if (mode === undefined) {
+    console.error('usage: node scripts/mirror-preset.mjs --write | --check');
+    process.exit(2);
+  }
+
   const packagesDir = resolveDshPackagesDir();
   const { version, contents } = plan(packagesDir);
   const installed = await readVersion(packagesDir, UPSTREAM);
