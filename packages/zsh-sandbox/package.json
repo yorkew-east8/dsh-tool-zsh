@@ -1,6 +1,6 @@
 {
   "name": "@yorkew-east8/dsh-zsh-sandbox",
-  "description": "Sandbox-consuming zsh executor for the DeepSeek Harness (dsh) shell seam — replaces the hardcoded bash argv with zsh while keeping every confinement, denial, and escalation fact",
+  "description": "Sandbox-consuming zsh executor for the DeepSeek Harness (dsh) shell seam — subclasses the shipped bash executor and overrides only its confine() hook to run zsh -c",
   "version": "0.1.0",
   "publishConfig": {
     "access": "public"
@@ -23,15 +23,15 @@
   "files": [
     "lib/index.js",
     "lib/types/**/*.d.ts",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "license": "MIT",
   "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
     "@deepseek-ai/dsh-bash-local": "*",
-    "@deepseek-ai/dsh-invariants": "*",
+    "@deepseek-ai/dsh-bash-sandbox": "*",
     "@deepseek-ai/dsh-sandbox": "*",
-    "@deepseek-ai/dsh-sandbox-policy": "*",
-    "@deepseek-ai/dsh-shell": "*",
-    "@deepseek-ai/cordis": "*"
+    "@deepseek-ai/dsh-shell": "*"
   }
 }

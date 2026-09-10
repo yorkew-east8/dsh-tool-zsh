@@ -1,0 +1,5 @@
+# Collapse generated mirrors in review diffs. These files are produced by
+# `pnpm run sync` from the installed dsh; edit scripts/, not them.
+packages/tool-zsh/lib/index.js linguist-generated=true
+packages/tool-zsh/lib/types/*.d.ts linguist-generated=true
+packages/bundle/agent-presets/zsh/agent.cordis.yml linguist-generated=true

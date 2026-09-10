@@ -15,13 +15,14 @@
   "files": [
     "cordis.patch.yml",
     "README.md",
+    "LICENSE",
     "agent-presets/zsh/agent.cordis.yml",
     "agent-presets/zsh/preset.yml"
   ],
   "license": "MIT",
   "dependencies": {
-    "@yorkew-east8/dsh-zsh-sandbox": "^0.1.0",
-    "@yorkew-east8/dsh-tool-zsh": "^0.1.0"
+    "@yorkew-east8/dsh-zsh-sandbox": "workspace:*",
+    "@yorkew-east8/dsh-tool-zsh": "workspace:*"
   },
   "dsh": {
     "bundle": {

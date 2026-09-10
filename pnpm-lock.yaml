@@ -1,0 +1,22 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: false
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .: {}
+
+  packages/bundle:
+    dependencies:
+      '@yorkew-east8/dsh-tool-zsh':
+        specifier: workspace:*
+        version: link:../tool-zsh
+      '@yorkew-east8/dsh-zsh-sandbox':
+        specifier: workspace:*
+        version: link:../zsh-sandbox
+
+  packages/tool-zsh: {}
+
+  packages/zsh-sandbox: {}

@@ -1,4 +1,4 @@
-# dsh-zsh-bundle — applied after the base/web-app bundle layers.
+# dsh-zsh-bundle — applied after the base and web-app bundle layers.
 #
 # What this changes:
 #   * Disables the host-plane `bash-sandbox` executor and inserts a
@@ -6,8 +6,14 @@
 #     through `zsh -c` instead of `bash -c`, keeping the same sandbox,
 #     approval/escalation, timeout, spill, and output semantics.
 #
-# The model-facing TOOL rename (bash -> zsh) is intentionally NOT done here:
-# on the Web surface, host-plane tool rows are disabled and tools are mounted
+# Windows: dsh ships `pwsh-sandbox` as the Windows shell and disables
+# `bash-sandbox` there. `zsh` is not a Windows shell, so `zsh-sandbox` is
+# disabled on win32 too and `pwsh-sandbox` keeps providing `ctx.shell`. Exactly
+# one provider must be live, because the executor registers the single `shell`
+# service.
+#
+# The model-facing TOOL rename (bash -> zsh) is intentionally NOT done here: on
+# the Web surface, host-plane tool rows are disabled and tools are mounted
 # per-session by an agent preset, so renaming the tool there belongs to the
 # preset (see agent-presets/zsh/). On headless/tui surfaces, disable
 # `tool-bash` and insert `tool-zsh` in your own cordis.patch.yml to swap the
@@ -18,3 +24,4 @@
 - insert:
     - id: zsh-sandbox
       name: '@yorkew-east8/dsh-zsh-sandbox'
+      disabled: !!js process.platform === 'win32'

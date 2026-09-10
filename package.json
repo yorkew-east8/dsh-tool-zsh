@@ -7,5 +7,11 @@
   "packageManager": "pnpm@9.15.0",
   "engines": {
     "node": ">=20"
+  },
+  "scripts": {
+    "sync": "node scripts/mirror-tool.mjs --write && node scripts/mirror-preset.mjs --write",
+    "check:mirror": "node scripts/mirror-tool.mjs --check && node scripts/mirror-preset.mjs --check",
+    "test": "node --test \"test/*.test.mjs\"",
+    "verify": "npm run check:mirror && node --test \"test/*.test.mjs\""
   }
 }
